@@ -29,3 +29,27 @@ Enter a color keyword ie.yellow OR a Hexadecimal number for your shape: `,
         name: "textColor"
             },
 ];
+
+// Function that writes logo.svg ================================================
+function writeToFile(writingShape) {
+    fs.writeFile("logo.svg", writingShape, (err) => {
+        if (err)
+        console.log(err);
+    else{
+        console.log("Generated logo.svg")
+    }
+    });
+};
+
+// Initializing the app =========================================================
+function init() {
+    inquirer
+    .prompt(shapePrompts)
+    .then((shapeData) => {
+        const importedShape = genShapes(shapeData)
+        writeToFile(importedShape)
+    })
+}
+
+// Function call to initialize app 
+init();

@@ -1,7 +1,8 @@
 //Packages needed for App: Jest, Inquirer
 const fs = require("fs");
 const inquirer = require("inquirer");
-const genShapes = require("./lib/shapes")
+const {Circle, Triangle, Square} = require("./lib/shapes"); // might have to import an object
+
 
 // Array of prompts for user input
 const shapePrompts = [
@@ -46,9 +47,13 @@ function init() {
     inquirer
     .prompt(shapePrompts)
     .then((shapeData) => {
-        const importedShape = genShapes(shapeData)
+        if ( `${Circle}`) {
+            
+        }
+        const importedShape = genShapes(shapeData) // genShapes is not defined
         writeToFile(importedShape)
-    })
+})
+
 }
 
 // Function call to initialize app 

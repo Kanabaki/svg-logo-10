@@ -9,7 +9,7 @@ const shapePrompts = [
     {
         type: "input",
         message:"Enter up to 3 characters for your logo: ",
-        name: "logoName",
+        name: "text",
     },
     {
 type: "input",
@@ -27,7 +27,7 @@ name: "textColor"
         type: "input",
         message: `Shape Color
 Enter a color keyword ie.yellow OR a Hexadecimal number for your shape: `,
-        name: "textColor"
+        name: "shapeColor"
             },
 ];
 
@@ -46,12 +46,19 @@ function writeToFile(writingShape) {
 function init() {
     inquirer
     .prompt(shapePrompts)
-    .then((shapeData) => {
-        if ( `${Circle}`) {
+    .then((answers) => {
+        const {shapeChoice,text, textColor, shapeColor} = answers;
+        console.log(answers);
+        if ( shapePrompts.shapeChoice == "circle" || "Circle") {
+            const circleInit = new Circle(shapeChoice,text, textColor, shapeColor);
+            writeToFile(circleInit.render())
             
+            console.log("generated circleInit")
+        } else {
+            console.log("error generating circle")
         }
-        const importedShape = genShapes(shapeData) // genShapes is not defined
-        writeToFile(importedShape)
+        // continue shapes !!!!!!!!
+       
 })
 
 }

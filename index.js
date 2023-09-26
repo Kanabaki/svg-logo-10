@@ -49,17 +49,25 @@ function init() {
     .then((answers) => {
         const {shapeChoice,text, textColor, shapeColor} = answers;
         console.log(answers);
-        if ( shapePrompts.shapeChoice == "circle" || "Circle") {
+        if ( shapeChoice === "circle") {
             const circleInit = new Circle(shapeChoice,text, textColor, shapeColor);
-            writeToFile(circleInit.render())
+            writeToFile(circleInit.circleRender())
             
-            console.log("generated circleInit")
-        } else {
-            console.log("error generating circle")
-        }
-        // continue shapes !!!!!!!!
-       
-})
+        }  
+       else if (shapeChoice === "triangle") {
+           const triangleInit = new Triangle(shapeChoice,text,textColor,shapeColor);
+           writeToFile(triangleInit.triangleRender())
+           
+        } 
+        else if (shapeChoice === "square") {
+            const squareInit = new Square(shapeChoice,text,textColor,shapeColor);
+        writeToFile(squareInit.squareRender())
+
+        }else {
+        console.log("error generating logo")
+        // Err !!!!!!!! All prompts generate a circle.
+    }
+});
 
 }
 

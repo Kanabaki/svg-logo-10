@@ -8,7 +8,8 @@ const {Circle, Triangle, Square} = require("./lib/shapes"); // might have to imp
 const shapePrompts = [
     {
         type: "input",
-        message:"Enter up to 3 characters for your logo: ",
+        message: `Enter up to 3 characters for your logo: 
+!! Keep in mind that if you input more, it could render incorrectly !! \n`,
         name: "text",
     },
     {
@@ -65,7 +66,7 @@ function init() {
 
         }else {
         console.log("error generating logo")
-        // Err !!!!!!!! All prompts generate a circle.
+        
     }
 });
 

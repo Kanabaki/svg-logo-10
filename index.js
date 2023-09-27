@@ -1,7 +1,7 @@
 //Packages needed for App: Jest, Inquirer
 const fs = require("fs");
 const inquirer = require("inquirer");
-const {Circle, Triangle, Square} = require("./lib/shapes"); // might have to import an object
+const {Circle, Triangle, Square} = require("./lib/shapes");
 
 
 // Array of prompts for user input
